@@ -35,4 +35,5 @@ lst.add(1)
 - `index(value)`- return the index of first node with the given value
 - `remove(value)` - remove the first node with the given value
 - `remove_all(value)` - remove allnodes with the given value
-- `insert(index, value)` - insert a node with the given value right before the given index
+- `insert(index, value)` - insert a node with the given value right before
+  the given index
