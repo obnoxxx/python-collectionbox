@@ -1,4 +1,5 @@
 CHECKMAKE := go run github.com/checkmake/checkmake/cmd/checkmake@v0.3.2
+ACTIONLINT := go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
 
 .DEFAULT_GOAL := all
 
@@ -19,7 +20,7 @@ lint.make: ## lint the makefile
 	@echo "The Makefile is OK."
 
 .PHONY: lint
-lint: lint.make lint.code ## Run various linters
+lint: lint.make lint.code lint.workflows ## Run various linters
 
 .PHONY: test
 test: lint
@@ -37,3 +38,8 @@ clean:
 	@echo "cleaning..."
 	@echo "All clean now."
 
+.PHONY: lint.workflows
+lint.workflows:
+	@echo "linting GitHub workflows..."
+	@$(ACTIONLINT) --color
+	@echo "all workflows are good."
