@@ -38,7 +38,7 @@ Furthermore, Chain supports the following features of python containers:
 
 - len : length
 - repr : string representation
-- iteration
+- iteration (including reversal)
 - bool : check if empty
 
 example use:
