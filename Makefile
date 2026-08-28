@@ -87,3 +87,7 @@ lint.markdown: $(MARKDOWNLINT_REQUIREMENTS)
 	@echo "linting markdown files..."
 	@$(MARKDOWNLINT) --verbose "**/**.md"
 	@echo "all markdown files are good."
+
+.PHONY: fix.markdown
+fix.markdown: $(MARKDOWNLINT_REQUIREMENTS)
+	@$(MARKDOWNLINT) --verbose --fix "**/**.md"
