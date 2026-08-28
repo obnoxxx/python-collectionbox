@@ -27,7 +27,7 @@ LOCAL_MARKDOWNLINT := $(shell command -v markdownlint-cli2 2>/dev/null)
 ifneq ($(LOCAL_MARKDOWNLINT),)
 MARKDOWNLINT := $(LOCAL_MARKDOWNLINT)
 else
-MARKDOWNLINT := $(CONTAINER_CMD) run --rm -v $$PWD:/workdir davidanson/markdownlint-cli2:$(MARKDOWNLINT_IMAGE_VERSION)
+MARKDOWNLINT := $(CONTAINER_CMD) run --rm -v $$PWD:/workdir --user $$(id -u):$$(id -g) --workdir /workdir davidanson/markdownlint-cli2:$(MARKDOWNLINT_IMAGE_VERSION)
 MARKDOWNLINT_REQUIREMENTS := check.container.runtime
 endif
 
