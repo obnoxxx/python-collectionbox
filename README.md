@@ -93,7 +93,7 @@ print(s)
 
 ## Queue
 
-`Queue`implements a queue data structure (LIFO) based on `Chain`.
+`Queue` implements a queue data structure (LIFO) based on `Chain`.
 
 `Queue()` initializes ab empty queue.
 
@@ -103,10 +103,11 @@ Queue supports the following methods:
 - `dequeue()`- remove from beginning of the queue
 - `clear()` - drain the queue, removong all entries
 
-Furthermore, `Queue`supports these features of python containers:
+Furthermore, `Queue` supports these features of python containers:
 
 - len: length of the queue
 - repr: string representation
+- iteration (including reversal)
 - bool : check if empty
 
 example use:

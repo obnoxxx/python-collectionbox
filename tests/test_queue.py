@@ -24,3 +24,21 @@ def test_queue():
     assert len(q) == 1
     q.clear()
     assert not q
+
+
+def test_queue_iteration_starts_at_the_front():
+    queue = Queue()
+    queue.enqueue("first")
+    queue.enqueue("second")
+    queue.enqueue("third")
+
+    assert list(queue) == ["first", "second", "third"]
+
+
+def test_queue_reverse_iteration_starts_at_the_back():
+    queue = Queue()
+    queue.enqueue("first")
+    queue.enqueue("second")
+    queue.enqueue("third")
+
+    assert list(reversed(queue)) == ["third", "second", "first"]

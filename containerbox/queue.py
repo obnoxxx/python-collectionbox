@@ -22,5 +22,11 @@ class Queue:
     def __bool__(self):
         return len(self) > 0
 
+    def __iter__(self):
+        return iter(self._chain)
+
+    def __reversed__(self):
+        return reversed(self._chain)
+
     def clear(self):
         self._chain.clear()
