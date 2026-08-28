@@ -1,11 +1,13 @@
 # python containerbox
 
-A python package with various container data structures.
+The containerbox package  is apure-Python collection of educational yet production-usable
+container data structures with clean, pythonic APIs.
 
 This project started as a learning exercise in
 object oriented python programming and data structure types.
+It is growing and evolving by having additional types added.
 
-So far, the package provides three classes:
+So far, the package provides three basic container classes:
 
 - `Chain`, a (doubly) linked list
 - `Stack`- a stack implementation (LIFO) based on `Chain`.
