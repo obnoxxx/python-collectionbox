@@ -25,5 +25,11 @@ class Stack:
     def __repr__(self):
         return f"Stack({list(self._chain)})"
 
+    def __iter__(self):
+        return iter(self._chain)
+
+    def __reversed__(self):
+        return reversed(self._chain)
+
     def clear(self):
         self._chain.clear()

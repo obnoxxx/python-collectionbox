@@ -107,7 +107,7 @@ class Chain:
             yield current.get_data()
             current = current.get_next()
 
-    def __reversed(self):
+    def __reversed__(self):
         current = self.__tail
         while current:
             yield current.get_data()

@@ -23,3 +23,21 @@ def test_stack():
     assert len(stack) == 0
     stack.clear()
     assert not stack
+
+
+def test_stack_iteration_starts_at_the_top():
+    stack = Stack()
+    stack.push("first")
+    stack.push("second")
+    stack.push("third")
+
+    assert list(stack) == ["third", "second", "first"]
+
+
+def test_stack_reverse_iteration_starts_at_the_bottom():
+    stack = Stack()
+    stack.push("first")
+    stack.push("second")
+    stack.push("third")
+
+    assert list(reversed(stack)) == ["first", "second", "third"]
