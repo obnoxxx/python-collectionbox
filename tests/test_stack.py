@@ -21,3 +21,5 @@ def test_stack():
     assert stack.pop() == 2
     assert stack.pop() == 1
     assert len(stack) == 0
+    stack.clear()
+    assert not stack
