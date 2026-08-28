@@ -17,3 +17,21 @@ def test_chain():
     assert lst.index(10) == -1
     lst.clear()
     assert len(lst) == 0
+
+
+def test_chain_iteration_starts_at_the_head():
+    chain = Chain()
+    chain.add("first")
+    chain.add("second")
+    chain.add("third")
+
+    assert list(chain) == ["first", "second", "third"]
+
+
+def test_chain_reverse_iteration_starts_at_the_tail():
+    chain = Chain()
+    chain.add("first")
+    chain.add("second")
+    chain.add("third")
+
+    assert list(reversed(chain)) == ["third", "second", "first"]
