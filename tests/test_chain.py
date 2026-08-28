@@ -15,3 +15,5 @@ def test_chain():
     assert lst[2] == 3
     # corner case of nonexisting value
     assert lst.index(10) == -1
+    lst.clear()
+    assert len(lst) == 0

@@ -32,6 +32,7 @@ doubly linked list for storing values (data items) of any type.
 - `remove_all(value)` - remove all nodes with the given value
 - `insert(index, value)` - insert a node with the given value right before
   the given index
+- `clear()` - drain the list, i. e. remove all nodes
 
 Furthermore, Chain supports the following features of python containers:
 

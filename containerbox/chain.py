@@ -282,3 +282,11 @@ class Chain:
         - public interface
         """
         self._insert(index, data)
+
+    def clear(self):
+        """
+        drain the entire list
+        """
+        self.__head = None
+        self.__tail = None
+        self.__size = 0
