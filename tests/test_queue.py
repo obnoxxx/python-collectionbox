@@ -20,3 +20,7 @@ def test_queue():
     q.dequeue()
     assert len(q) == 0
     assert not q
+    q.enqueue("a")
+    assert len(q) == 1
+    q.clear()
+    assert not q

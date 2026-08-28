@@ -54,7 +54,7 @@ lst.add(1)
 
 ## Stack
 
-`Stack`implements a stack (FIFO) data structure based on `Chain`.
+`Stack` implements a stack (FIFO) data structure based on `Chain`.
 
 `Stack()`initializes an empty stack.
 Stack supports the following methods:
@@ -100,6 +100,7 @@ Queue supports the following methods:
 
 - `enqueue(data)` - add to the end of the queue
 - `dequeue()`- remove from beginning of the queue
+- `clear()` - drain the queue, removong all entries
 
 Furthermore, `Queue`supports these features of python containers:
 

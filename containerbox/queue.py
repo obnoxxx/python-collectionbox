@@ -21,3 +21,6 @@ class Queue:
 
     def __bool__(self):
         return len(self) > 0
+
+    def clear(self):
+        self._chain.clear()
