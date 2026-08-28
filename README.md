@@ -93,7 +93,7 @@ print(s)
 
 ## Queue
 
-`Queue` implements a queue data structure (LIFO) based on `Chain`.
+`Queue` implements a queue data structure (FIFO) based on `Chain`.
 
 `Queue()` initializes ab empty queue.
 
