@@ -54,7 +54,7 @@ lst.add(1)
 
 ## Stack
 
-`Stack` implements a stack (FIFO) data structure based on `Chain`.
+`Stack` implements a stack (LIFO) data structure based on `Chain`.
 
 `Stack()`initializes an empty stack.
 Stack supports the following methods:
