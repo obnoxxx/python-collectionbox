@@ -61,10 +61,10 @@ Stack supports the following methods:
 
 - `push(data) - put a leaf with given dta  on top of the stack
 - `pop()` - remove the top leaf from the stack, returning its data
-- `peek()`- the to leaf's data without removing it.
-- `clear()`- remove all leafs from the stack
+- `peek()`- the leaf's data without removing it.
+- `clear()` - remove all leaves from the stack
 
-Furthermore, `Stack`supports the following features of python containers:
+Furthermore, `Stack` supports the following features of python containers:
 
 - len : length
 - repr : string representation
