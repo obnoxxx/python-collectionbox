@@ -7,11 +7,12 @@ This project started as a learning exercise in
 object oriented python programming and data structure types.
 It is growing and evolving by having additional types added.
 
-So far, the package provides three basic collection classes:
+So far, the package provides four basic collection classes:
 
 - `Chain`, a (doubly) linked list
 - `Stack`- a stack implementation (LIFO) based on `Chain`.
 - `Queue`- a queue implementation (FIFO)based on `Chain`.
+- `SortedChain`, a sorted (doubly) linked list.
 
 ## Chain
 
@@ -128,5 +129,56 @@ print(q)
 
 q.dequeue()
 q.dequeue()
+
+```
+
+## SortedChain
+
+`SortedChain` implements a sorted list as a doubly linked list. Values added
+to the collection are kept in ascending order, including duplicate values.
+
+`SortedChain(value)` initializes a chain containing `value` as the only enrty
+
+`SortedChain` offers the following methods:
+
+- `add(value)` - add a value while preserving ascending order
+- `remove(value)` - remove the first occurrence of a value
+- `remove_all(value)` - remove all occurrences of a value
+- `count(value)` - return the number of occurrences of a value
+- `index(value)` - return the one-based index of the first occurrence, or `-1`
+  when the value is absent
+- `lower_bound(value)` - return the one-based index of the first value that is
+  greater than or equal to `value`
+- `upper_bound(value)` - return the one-based index of the first value that is
+  greater than `value`
+- `first()` - return the smallest value, or `None` when empty
+- `last()` - return the largest value, or `None` when empty
+- `clear()` - remove all values
+
+Furthermore, `SortedChain` supports the following features of Python
+collections:
+
+- len : length
+- repr : string representation
+- iteration (including reversal)
+- bool : check if empty
+- one-based indexing
+- membership testing
+
+example use:
+
+```python
+
+from collectionbox import SortedChain
+
+chain = SortedChain(5)
+
+for value in [3, 7, 1, 5]:
+    chain.add(value)
+
+print(list(chain))  # [1, 3, 5, 5, 7]
+print(chain.count(5))  # 2
+print(chain.first())  # 1
+print(chain.last())  # 7
 
 ```
