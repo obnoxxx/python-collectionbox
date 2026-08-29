@@ -1,4 +1,4 @@
-from containerbox import Stack
+from collectionbox import Stack
 
 
 def test_stack():

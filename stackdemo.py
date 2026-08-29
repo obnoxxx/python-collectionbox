@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from containerbox import Stack
+from collectionbox import Stack
 
 s = Stack()
 print("length of new stack:", len(s))

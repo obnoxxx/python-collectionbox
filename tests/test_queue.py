@@ -1,4 +1,4 @@
-from containerbox import Queue
+from collectionbox import Queue
 
 
 def test_queue():

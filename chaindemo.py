@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from containerbox import Chain
+from collectionbox import Chain
 
 mylist = Chain()
 

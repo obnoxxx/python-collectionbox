@@ -5,7 +5,7 @@ read text from stdin, count words, characters and frequencies of different chara
 
 import sys
 
-from containerbox import Chain
+from collectionbox import Chain
 
 
 def char_display(char):

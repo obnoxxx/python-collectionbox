@@ -1,5 +1,5 @@
 """
-Chain class/ chain module of the containerbox package
+Chain class/ chain module of the collectionbox package
 This implements the doubly linked list class Chain using the internal _DlNode class.
 """
 

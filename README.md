@@ -1,13 +1,13 @@
-# python containerbox
+# python collectionbox
 
-The containerbox package  is apure-Python collection of educational yet production-usable
-container data structures with clean, pythonic APIs.
+The collectionbox package  is apure-Python collection of educational yet production-usable
+collection data structures with clean, pythonic APIs.
 
 This project started as a learning exercise in
 object oriented python programming and data structure types.
 It is growing and evolving by having additional types added.
 
-So far, the package provides three basic container classes:
+So far, the package provides three basic collection classes:
 
 - `Chain`, a (doubly) linked list
 - `Stack`- a stack implementation (LIFO) based on `Chain`.
@@ -15,7 +15,7 @@ So far, the package provides three basic container classes:
 
 ## Chain
 
-`Chain` is a list-type container class that is implemented as a
+`Chain` is a list-type collection class that is implemented as a
 doubly linked list for storing values (data items) of any type.
 
 `Chain()` initializes an empty chain that can be added to.
@@ -36,7 +36,7 @@ doubly linked list for storing values (data items) of any type.
   the given index
 - `clear()` - drain the list, i. e. remove all nodes
 
-Furthermore, Chain supports the following features of python containers:
+Furthermore, Chain supports the following features of python collections:
 
 - len : length
 - repr : string representation
@@ -47,7 +47,7 @@ example use:
 
 ```python
 
-from containerbox import Chain
+from collectionbox import Chain
 ...
 lst = Chain()
 lst.add(1)
@@ -77,7 +77,7 @@ example use:
 
 ```python:
 
-from containerbox import Stack
+from collectionbox import Stack
 
 s = Stack()
 
@@ -116,7 +116,7 @@ example use:
 
 ```python
 
-from containerbox import Queue
+from collectionbox import Queue
 
 q = Queue()
 

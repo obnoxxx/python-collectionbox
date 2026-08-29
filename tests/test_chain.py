@@ -1,4 +1,4 @@
-from containerbox import Chain
+from collectionbox import Chain
 
 
 def test_chain():

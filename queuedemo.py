@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from containerbox import Queue
+from collectionbox import Queue
 
 q = Queue()
 
