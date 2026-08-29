@@ -37,53 +37,6 @@ class _DlNode:
     def set_data(self, data):
         self.__data = data
 
-    def is_first(self):
-        if self.__prev is None and self.__next is not None:
-            return True
-        else:
-            return False
-
-    def is_last(self):
-        if self.__next is None and self.__prev is not None:
-            return True
-        else:
-            return False
-
-
-#    def prepend(self, node):
-#        if node is None:
-#            return
-#        # can only prepend before the first node
-#        if self.is_first():
-#            return
-#        if self.get_prev() is None:
-#            return
-#        self.get_prev().set_next(node)
-#        self.set_prev(node)
-#        node.set_prev(self.get_prev())
-#        node.set_next(self)
-#    def append(self, node):
-#        if node is None:
-#            return
-#        if self.is_last():
-#            return
-#        if self.get_next() is None:
-#            return
-#        self.get_next().set_prev(node)
-#        self.set_next(node)
-#        node.set_next(self.get_next())
-#
-#    def get_first(self):
-#            node = self
-#            while(not node.is_first()):
-#                node = node.get_prev()
-#            return node
-#    def ret_last(self):
-#            node = self
-#            while(not node.is_last()):
-#                node = node.get_next()
-#            return node
-
 
 class Chain:
     """
