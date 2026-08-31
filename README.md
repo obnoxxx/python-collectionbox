@@ -1,11 +1,11 @@
 # python collectionbox
 
-The collectionbox package  is apure-Python collection of educational yet production-usable
+The collectionbox package is a pure-Python collection of educational yet production-usable
 collection data structures with clean, pythonic APIs.
 
 This project started as a learning exercise in
 object oriented python programming and data structure types.
-It is growing and evolving by having additional types added.
+It is growing and evolving as additional types are being added.
 
 So far, the package provides three basic collection classes:
 
@@ -75,7 +75,7 @@ Furthermore, `Stack` supports the following features of python containers:
 
 example use:
 
-```python:
+```python
 
 from collectionbox import Stack
 
@@ -97,7 +97,7 @@ print(s)
 
 `Queue` implements a queue data structure (FIFO) based on `Chain`.
 
-`Queue()` initializes ab empty queue.
+`Queue()` initializes an empty queue.
 
 Queue supports the following methods:
 
