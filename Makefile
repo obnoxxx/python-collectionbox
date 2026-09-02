@@ -74,16 +74,24 @@ else
 	@echo "Skipping tox tests: install development dependencies with 'python -m pip install -e \".[dev]\"'."
 endif
 
+.PHONY: build
+build: ## build source and wheel distributions
+	@python -m build
+
+.PHONY: build.wheel
+build.wheel: ## build a wheel distribution
+	@python -m build --wheel
+
 .PHONY: check
-check: test test.tox
+check: test test.tox build
 
 .PHONY: all
 all: clean check
 
-#clean is only added to silence checkmake.
 .PHONY: clean
 clean:
 	@echo "cleaning..."
+	@rm -rf build dist collectionbox.egg-info
 	@echo "All clean now."
 
 .PHONY: lint.workflows
