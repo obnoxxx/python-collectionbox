@@ -38,8 +38,8 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Install pytest
-        run: pip install pytest
+      - name: Install development tools
+        run: pip install ".[dev]"
       - name: Install native linters
         if: runner.os == 'macOS' || runner.os == 'Windows'
         run: |
