@@ -20,6 +20,12 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<9",
+    "tox>=4.22",
+]
+
 [tool.setuptools.packages.find]
 include = ["collectionbox*"]
 
@@ -29,3 +35,11 @@ include = ["collectionbox*"]
 
 [tool.black]
 target-version = ["py39"]
+
+[tool.tox]
+env_list = ["py39", "py310", "py311", "py312", "py313", "py314"]
+
+[tool.tox.env_run_base]
+description = "Run the test suite against an installed package"
+deps = ["pytest>=8,<9"]
+commands = [["pytest", { replace = "posargs", default = ["tests"], extend = true }]]
