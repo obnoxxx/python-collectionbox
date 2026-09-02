@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: 3.12
 
-      - name: Install development tools
+      - name: Install development and build tools
         run: pip install ".[dev]"
       - name: Install native linters
         if: runner.os == 'macOS' || runner.os == 'Windows'
