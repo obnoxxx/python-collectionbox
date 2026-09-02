@@ -38,6 +38,7 @@ else
 BLACK := $(CONTAINER_CMD) run --rm --volume $$PWD:/src --user $$(id -u):$$(id -g) --workdir /src pyfound/black:$(BLACK_VERSION) black
 BLACK_REQUIREMENTS := check.container.runtime
 endif
+LOCAL_TOX := $(shell command -v tox 2>/dev/null)
 
 .DEFAULT_GOAL := all
 
@@ -64,8 +65,17 @@ lint: lint.make lint.code lint.markdown lint.workflows ## Run various linters
 test: lint
 	@pytest
 
+
+.PHONY: test.tox
+test.tox:
+ifneq ($(LOCAL_TOX),)
+	@$(LOCAL_TOX) -e py
+else
+	@echo "Skipping tox tests: install development dependencies with 'python -m pip install -e \".[dev]\"'."
+endif
+
 .PHONY: check
-check: test
+check: test test.tox
 
 .PHONY: all
 all: clean check
