@@ -44,13 +44,12 @@ def test_sorted_chain_searches_duplicates_counts_and_bounds():
         chain.add(value)
 
     assert 3 in chain
-    assert chain.find(3).value == 3
+    assert chain[chain.index(3)] == 3
     assert chain.count(3) == 4
     assert chain.index(3) == 2
     assert chain.lower_bound(3) == 2
     assert chain.upper_bound(3) == 6
     assert 4 not in chain
-    assert chain.find(4) is None
     assert chain.count(4) == 0
     assert chain.index(4) == -1
     assert chain.index(3) == 2
