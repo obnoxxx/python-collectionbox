@@ -7,12 +7,13 @@ This project started as a learning exercise in
 object oriented python programming and data structure types.
 It is growing and evolving as additional types are being added.
 
-So far, the package provides four basic collection classes:
+So far, the package provides five basic collection classes:
 
 - `Chain`, a (doubly) linked list
 - `Stack`- a stack implementation (LIFO) based on `Chain`.
 - `Queue`- a queue implementation (FIFO)based on `Chain`.
 - `SortedChain`, a sorted (doubly) linked list.
+- `Set`, an insertion-ordered collection of unique values based on `Chain`.
 
 ## Chain
 
@@ -181,4 +182,37 @@ print(chain.count(5))  # 2
 print(chain.first())  # 1
 print(chain.last())  # 7
 
+```
+
+## Set
+
+`Set` stores unique values using a `Chain`. Values retain their insertion
+order when iterated, unlike Python's built-in `set`, whose iteration order is
+not part of its public contract.
+
+`Set()` initializes an empty set. An optional iterable can be supplied to
+initialize it; duplicate values from that iterable are ignored.
+
+`Set` offers the following methods:
+
+- `add(value)` - add `value` when it is not already present
+- `remove(value)` - remove `value`, raising `KeyError` when it is absent
+- `discard(value)` - remove `value` when present without raising for an absent
+  value
+- `clear()` - remove all values
+
+`Set` also supports Python container operations for length, representation,
+iteration, and membership testing.
+
+Example use:
+
+```python
+from collectionbox import Set
+
+values = Set([1, 2, 1])
+values.add(3)
+values.discard(2)
+
+print(list(values))  # [1, 3]
+print(1 in values)  # True
 ```
