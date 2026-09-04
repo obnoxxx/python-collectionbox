@@ -46,3 +46,40 @@ class Set:
 
     def clear(self):
         self._chain.clear()
+
+    def union(self, other):
+        result = Set()
+        for element in self:
+            result.add(element)
+        for element in other:
+            result.add(element)
+        return result
+
+    def __or__(self, other):
+        return self.union(other)
+
+    def intersection(self, other):
+        result = Set()
+        for element in self:
+            if element in other:
+                result.add(element)
+        return result
+
+    def __and__(self, other):
+        return self.intersection(other)
+
+    def difference(self, other):
+        result = Set()
+        for element in self:
+            if element not in other:
+                result.add(element)
+        return result
+
+    def __sub__(self, other):
+        return self.difference(other)
+
+    def symmetric_difference(self, other):
+        return self.difference(other).union(other.difference(self))
+
+    def __xor__(self, other):
+        return self.symmetric_difference(other)

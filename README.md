@@ -204,6 +204,20 @@ initialize it; duplicate values from that iterable are ignored.
 `Set` also supports Python container operations for length, representation,
 iteration, and membership testing.
 
+Additionally, `Set`supports the follopwing set opertations:
+
+- `union(other)` - form the union with another set.
+- `intersection(other)` - form the intersection with another set
+- `difference(other)` - form the difference with another set
+- `symmetric_difference(other)` - symmetrix difference
+
+These operations are also available via corresponding operators:
+
+- `|`
+- `&`
+- `-`
+- `ˆ`
+
 Limitation:
 
 Note that, due to the use of collectionbox's `Chain` as a storage backend,
@@ -212,7 +226,7 @@ element lookup in `Set` has linear complexity, O(n), in the number of elements.
 Limitation:
 
 Note that, due to the use of colectionbox's  Chain as a storage backend,
-elemen lookup in Set is of lineat complexity O(n) in the number of elements.
+element lookup in Set is of lineat complexity O(n) in the number of elements.
 
 Example use:
 
@@ -225,4 +239,12 @@ values.discard(2)
 
 print(list(values))  # [1, 3]
 print(1 in values)  # True
+
+A = Set([1, 2]) # {1, 2}
+B = Set([1, 2, 3]) # {1, 2, 3}
+C = A|B # union: {1, 2}
+D = A&B # intersection: {1, 2}
+E = A - B # difference: {}
+F = B - A # difference: { 3}
+
 ```

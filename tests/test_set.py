@@ -32,3 +32,24 @@ def test_set_remove_discard_and_clear():
 
     values.clear()
     assert len(values) == 0
+
+
+def test_set_operations():
+    A = Set([1, 2])
+    B = Set([1, 2])
+
+    assert repr(A | B) == "{1, 2}"
+    assert repr(A & B) == "{1, 2}"
+    assert repr(A - B) == "{}"
+    assert repr(B - A) == "{}"
+    assert repr(A ^ B) == "{}"
+    assert repr(B ^ B) == "{}"
+
+    B = Set([1, 2, 3])
+
+    assert repr(A | B) == "{1, 2, 3}"
+    assert repr(A & B) == "{1, 2}"
+    assert repr(A - B) == "{}"
+    assert repr(B - A) == "{3}"
+    assert repr(A ^ B) == "{3}"
+    assert repr(B ^ A) == "{3}"
