@@ -204,6 +204,11 @@ initialize it; duplicate values from that iterable are ignored.
 `Set` also supports Python container operations for length, representation,
 iteration, and membership testing.
 
+Limitation:
+
+Note that, due to the use of collectionbox's `Chain` as a storage backend,
+element lookup in `Set` has linear complexity, O(n), in the number of elements.
+
 Example use:
 
 ```python
