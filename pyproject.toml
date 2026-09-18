@@ -8,17 +8,29 @@ version = "0.1.0"
 description = "Educational, production-usable Python collection data structures."
 readme = "README.md"
 requires-python = ">=3.9"
-license = { file = "COPYING" }
+license = "GPL-3.0-only"
+license-files = ["COPYING"]
 authors = [
     { name = "Michael Adam", email = "obnox@samba.org" },
 ]
+keywords = ["collections", "data-structures", "linked-list", "queue", "stack"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
+
+[project.urls]
+Homepage = "https://github.com/obnoxxx/python-collectionbox"
+Repository = "https://github.com/obnoxxx/python-collectionbox"
+Issues = "https://github.com/obnoxxx/python-collectionbox/issues"
 
 [project.optional-dependencies]
 dev = [
