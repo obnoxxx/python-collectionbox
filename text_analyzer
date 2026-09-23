@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+# This is a thin wraper around text_analyzer.py
+# so that it can be invoked without the +py extension but
+# still be imported for testing.
+
+from text_analyzer import main
+
+main()

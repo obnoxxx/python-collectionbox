@@ -328,3 +328,8 @@ each collection class comes with a small artificial example program:
 
 Additionally, the working of each collection class is
 exemplified and locked down in a corresponding test script under `tests/`.
+
+## Text Analyzer Application
+
+A more realistic example is provided by the `text_analyzer` example program.
+It uses the `Chain` class to determine character frequencies in a text input.
