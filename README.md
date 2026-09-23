@@ -226,7 +226,7 @@ element lookup in `Set` has linear complexity, O(n), in the number of elements.
 Limitation:
 
 Note that, due to the use of colectionbox's  Chain as a storage backend,
-element lookup in Set is of lineat complexity O(n) in the number of elements.
+element lookup in Set is of linear complexity O(n) in the number of elements.
 
 Example use:
 
