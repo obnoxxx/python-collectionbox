@@ -287,3 +287,23 @@ E = A - B # difference: {}
 F = B - A # difference: { 3}
 
 ```
+
+## Where can I get collectionbox?
+
+collectionbox requires Python 3.9 or later and is available from
+[PyPI](https://pypi.org/project/collectionbox/).
+
+You can install and play with it like this:
+
+```console
+$ python3 -m pip install collectionbox
+$ python3
+>>> from collectionbox import Set
+>>> values = Set([1, 2, 1])
+>>> values.add(3)
+>>> values
+{1, 2, 3}
+>>> list(values)
+[1, 2, 3]
+>>>
+```
