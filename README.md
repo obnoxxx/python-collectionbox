@@ -316,3 +316,15 @@ $ python3
 [1, 2, 3]
 >>>
 ```
+
+## Examples
+
+To illustrate their possible use,
+each collection class comes with a small artificial example program:
+
+- `chaindemo.py` for `Chain`
+- `stackdemo.py` for `Stack`
+- and so on
+
+Additionally, the working of each collection class is
+exemplified and locked down in a corresponding test script under `tests/`.
