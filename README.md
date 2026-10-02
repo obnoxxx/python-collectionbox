@@ -69,8 +69,10 @@ doubly linked list for storing values (data items) of any type.
 - `add(value)` - alias for `append(value)`
 - `len()` - return the number of nodes in the chain
 - `count(value)` - return the number of nodes with the given value
-- `get_head()` - return the value of the first node, or `None` when empty
-- `get_tail()` - return the value of the last node, or `None` when empty
+- `head` - get or set the first value; returns `None` when empty, and setting
+  it on an empty chain creates the first node
+- `tail` - get or set the last value; returns `None` when empty, and setting
+  it on an empty chain creates the first node
 - `index(value)` - return the zero-based index of the first matching node, or
   `-1` when absent
 - `remove(value)` - remove the first node with the given value, if present

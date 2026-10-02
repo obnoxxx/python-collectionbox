@@ -19,22 +19,28 @@ class _DlNode:
         self.__data = data
 
     # setter and getter mothods for the (private attributes:
-    def get_next(self):
+    @property
+    def next(self):
         return self.__next
 
-    def set_next(self, node):
+    @next.setter
+    def next(self, node):
         self.__next = node
 
-    def get_prev(self):
+    @property
+    def prev(self):
         return self.__prev
 
-    def set_prev(self, node):
+    @prev.setter
+    def prev(self, node):
         self.__prev = node
 
-    def get_data(self):
+    @property
+    def data(self):
         return self.__data
 
-    def set_data(self, data):
+    @data.setter
+    def data(self, data):
         self.__data = data
 
 
@@ -48,32 +54,48 @@ class Chain:
         self.__tail = None
         self.__size = 0
 
-    def get_head(self):
-        return None if self.__head is None else self.__head.get_data()
+    @property
+    def head(self):
+        return None if self.__head is None else self.__head.data
 
-    def get_tail(self):
-        return None if self.__tail is None else self.__tail.get_data()
+    @head.setter
+    def head(self, data):
+        if self.__head is None:
+            self.append(data)
+        else:
+            self.__head.data = data
+
+    @property
+    def tail(self):
+        return None if self.__tail is None else self.__tail.data
+
+    @tail.setter
+    def tail(self, data):
+        if self.__tail is None:
+            self.append(data)
+        else:
+            self.__tail.data = data
 
     def __iter__(self):
         current = self.__head
         while current:
-            yield current.get_data()
-            current = current.get_next()
+            yield current.data
+            current = current.next
 
     def __reversed__(self):
         current = self.__tail
         while current:
-            yield current.get_data()
-            current = current.get_prev()
+            yield current.data
+            current = current.prev
 
     def __len__(self):
         return self.__size
 
     def __getitem__(self, idx):
-        return self._get_node(idx).get_data()
+        return self._get_node(idx).data
 
     def __setitem__(self, idx, data):
-        self._get_node(idx).set_data(data)
+        self._get_node(idx).data = data
 
     def __iadd__(self, iterable):
         for item in iterable:
@@ -92,10 +114,10 @@ class Chain:
         idx = 0
         node = self.__head
         while node is not None:
-            if node.get_data() == data:
+            if node.data == data:
                 return idx
             idx += 1
-            node = node.get_next()
+            node = node.next
         # not found: indicated by -1
         return -1
 
@@ -103,16 +125,16 @@ class Chain:
     def _remove_node(self, node):
         if node is None:
             return
-        previous = node.get_prev()
-        following = node.get_next()
+        previous = node.prev
+        following = node.next
         if previous is None:
             self.__head = following
         else:
-            previous.set_next(following)
+            previous.next = following
         if following is None:
             self.__tail = previous
         else:
-            following.set_prev(previous)
+            following.prev = previous
         self.__size -= 1
 
     def remove_at(self, index):
@@ -126,8 +148,8 @@ class Chain:
         remove removes the first node with the given data.
         """
         node = self.__head
-        while node is not None and node.get_data() != data:
-            node = node.get_next()
+        while node is not None and node.data != data:
+            node = node.next
         self._remove_node(node)
 
     # number of nodes with this data.
@@ -135,17 +157,17 @@ class Chain:
         num = 0
         node = self.__head
         while node is not None:
-            if node.get_data() == data:
+            if node.data == data:
                 num += 1
-            node = node.get_next()
+            node = node.next
         return num
 
     # remove all nodes with this data.
     def remove_all(self, data):
         node = self.__head
         while node is not None:
-            next_node = node.get_next()
-            if node.get_data() == data:
+            next_node = node.next
+            if node.data == data:
                 self._remove_node(node)
             node = next_node
 
@@ -154,11 +176,11 @@ class Chain:
         Add a data node to the beginning of the list.
         """
         new_node = _DlNode(data)
-        new_node.set_next(self.__head)
+        new_node.next = self.__head
         if self.__head is None:
             self.__tail = new_node
         else:
-            self.__head.set_prev(new_node)
+            self.__head.prev = new_node
         self.__head = new_node
         self.__size += 1
 
@@ -167,11 +189,11 @@ class Chain:
         Add a data node to the end of the list.
         """
         new_node = _DlNode(data)
-        new_node.set_prev(self.__tail)
+        new_node.prev = self.__tail
         if self.__tail is None:
             self.__head = new_node
         else:
-            self.__tail.set_next(new_node)
+            self.__tail.next = new_node
         self.__tail = new_node
         self.__size += 1
 
@@ -187,7 +209,7 @@ class Chain:
         i = 0
         node = self.__head
         while i < idx:
-            node = node.get_next()
+            node = node.next
             i += 1
         return node
 
@@ -196,18 +218,18 @@ class Chain:
             return
         if new_node is None:
             return
-        previous = node.get_prev()
-        following = node.get_next()
-        new_node.set_next(following)
-        new_node.set_prev(previous)
+        previous = node.prev
+        following = node.next
+        new_node.next = following
+        new_node.prev = previous
         if previous is None:
             self.__head = new_node
         else:
-            previous.set_next(new_node)
+            previous.next = new_node
         if following is None:
             self.__tail = new_node
         else:
-            following.set_prev(new_node)
+            following.prev = new_node
 
     def _insert(self, idx, data):
         """
@@ -218,15 +240,15 @@ class Chain:
         node = self._node_at(idx)
         if node is None:
             return False
-        previous = node.get_prev()
-        next = node.get_next()
-        new_node.set_next(node)
-        new_node.set_prev(previous)
-        node.set_prev(new_node)
+        previous = node.prev
+        next = node.next
+        new_node.next = node
+        new_node.prev = previous
+        node.prev = new_node
         if previous is None:
             self.__head = new_node
         else:
-            previous.set_next(new_node)
+            previous.next = new_node
         self.__size += 1
 
     def insert(self, index, data):

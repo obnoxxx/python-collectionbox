@@ -35,3 +35,41 @@ def test_chain_reverse_iteration_starts_at_the_tail():
     chain.add("third")
 
     assert list(reversed(chain)) == ["third", "second", "first"]
+
+
+def test_chain_head_and_tail_getters_return_endpoint_values():
+    chain = Chain()
+    assert chain.head is None
+    assert chain.tail is None
+
+    chain += [1, 2]
+
+    assert chain.head == chain[0]
+    assert chain.tail == chain[1]
+
+
+def test_chain_head_and_tail_setters_replace_endpoint_values():
+    chain = Chain()
+    chain += [1, 2, 3]
+
+    chain.head = "first"
+    chain.tail = "last"
+
+    assert list(chain) == ["first", 2, "last"]
+    assert list(reversed(chain)) == ["last", 2, "first"]
+    assert len(chain) == 3
+
+
+def test_chain_endpoint_setters_initialize_an_empty_chain():
+    chain = Chain()
+
+    chain.head = "first"
+    assert list(chain) == ["first"]
+    assert chain.head == "first"
+    assert chain.tail == "first"
+
+    chain.clear()
+    chain.tail = "last"
+    assert list(chain) == ["last"]
+    assert chain.head == "last"
+    assert chain.tail == "last"
