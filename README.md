@@ -67,6 +67,8 @@ doubly linked list for storing values (data items) of any type.
 - `append(value)` - add `value` to the end of the chain
 - `prepend(value)` - add `value` to the beginning of the chain
 - `add(value)` - alias for `append(value)`
+- `extend(iterable)` - add every item from `iterable` to the end of the chain
+- `copy()` - return a new chain containing the same values
 - `len()` - return the number of nodes in the chain
 - `count(value)` - return the number of nodes with the given value
 - `head` - get or set the first value; returns `None` when empty, and setting
@@ -86,16 +88,25 @@ Furthermore, `Chain` supports the following Python collection features:
 - `repr()` : string representation
 - iteration (including reversal)
 - truth-value testing
+- `+=` : extend the chain in place with an iterable, or append a single value
+- `+` : return a new chain containing this chain's values followed by an
+  iterable's items or a single value
 
-example use:
+Example use:
 
 ```python
-
 from collectionbox import Chain
-...
-lst = Chain()
-lst.add(1)
-...
+
+chain = Chain()
+chain.extend([1, 2])
+chain += [3, 4]
+
+copy = chain.copy()
+combined = chain + [5, 6]
+
+print(list(chain))  # [1, 2, 3, 4]
+print(list(copy))  # [1, 2, 3, 4]
+print(list(combined))  # [1, 2, 3, 4, 5, 6]
 ```
 
 ### Stack

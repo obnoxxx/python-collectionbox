@@ -97,13 +97,39 @@ class Chain:
     def __setitem__(self, idx, data):
         self._get_node(idx).data = data
 
-    def __iadd__(self, iterable):
-        for item in iterable:
-            self.append(item)
-        return self
-
     def __repr__(self):
         return f"DlList({list(self)})"
+
+    def extend(self, iterable):
+        if iterable is self:
+            iterable = list(iterable)
+        for item in iterable:
+            self.add(item)
+
+    # implement += ...:
+    def __iadd__(self, other):
+        if other is self:
+            self.extend(other)
+            return self
+
+        try:
+            iterator = iter(other)
+        except TypeError:
+            self.add(other)
+        else:
+            self.extend(iterator)
+        return self
+
+    def copy(self):
+        new = Chain()
+        new += self
+        return new
+
+    # implement +:...
+    def __add__(self, other):
+        new = self.copy()
+        new += other
+        return new
 
     def len(self):
         return self.__size

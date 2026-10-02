@@ -73,3 +73,74 @@ def test_chain_endpoint_setters_initialize_an_empty_chain():
     assert list(chain) == ["last"]
     assert chain.head == "last"
     assert chain.tail == "last"
+
+
+def test_chain_extend():
+    c = Chain()
+
+    c.extend([1, 2, 3])
+    assert len(c) == 3
+    c += [4, 5, 6]
+    assert len(c) == 6
+    c += 1
+    assert list(c) == [1, 2, 3, 4, 5, 6, 1]
+
+
+def test_chain_iadd_accepts_sequence_protocol_iterables():
+    class SequenceProtocol:
+        def __getitem__(self, index):
+            if index == 0:
+                return "first"
+            if index == 1:
+                return "second"
+            raise IndexError
+
+    chain = Chain()
+    chain += SequenceProtocol()
+
+    assert list(chain) == ["first", "second"]
+
+
+def test_chain_extend_with_itself_appends_a_snapshot():
+    chain = Chain()
+    chain += [1, 2, 3]
+
+    chain.extend(chain)
+
+    assert list(chain) == [1, 2, 3, 1, 2, 3]
+
+
+def test_chain_iadd_with_itself_appends_a_snapshot():
+    chain = Chain()
+    chain += [1, 2, 3]
+
+    chain += chain
+
+    assert list(chain) == [1, 2, 3, 1, 2, 3]
+
+
+def test_chain_combine():
+    c1 = Chain()
+    c1 += [1, 2, 3]
+    c2 = Chain()
+    c2 += [4, 5, 6]
+    c3 = c1 + c2
+    assert len(c3) == 6
+
+
+def test_chain_copy():
+    c1 = Chain()
+    c1 += [1, 2, 3]
+    c2 = c1.copy()
+    assert list(c1) == list(c2)
+
+
+def test_chain_extend_combine():
+    c1 = Chain()
+    c1 += [1, 2, 3]
+    c2 = Chain()
+    c2 += [4, 5, 6]
+    c3 = c1 + c2
+    c4 = c1.copy()
+    c4 += c2
+    assert list(c3) == list(c4)
