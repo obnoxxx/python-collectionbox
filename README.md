@@ -2,15 +2,15 @@
 
 ## What is collectionbox?
 
-`collectionbox` is a pure-Python library package of educational yet production-usable
-collection-type data structures with clean, Pythonic APIs.
+`collectionbox` is a pure-Python library of educational yet production-usable
+data structures with clean, Pythonic APIs.
 
 collectionbox currently provides the classes
 `Chain`, `Stack`, `Queue`, `SortedChain`, and `Set`.
 More details about each class are given below.
 
 This project started as a learning exercise in
-object oriented python programming and data structure types.
+object-oriented Python programming and data structures.
 It is growing and evolving as additional types are being added.
 
 ## Why collectionbox?
@@ -22,8 +22,8 @@ recommended choice.
 collectionbox is not intended to replace Python's native collections.
 Instead, it provides a collection framework with a focus on
 consistent, uniform, and explicitly object-oriented APIs.
-Its goal is to offer consistent
-interfaces and behavior across different collection types while
+Its goal is to offer consistent interfaces and behavior across different
+collection types while
 remaining easy to understand, extend, and experiment with.
 
 Unlike wrapper libraries built on top of Python's existing collection
@@ -31,8 +31,10 @@ implementations, collectionbox implements its own data structures
 from scratch in pure Python.
 
 This makes the project useful as an educational tool and
-as a platform for exploring collection abstractions and data structure
-design.
+as a platform for exploring collection abstractions and
+object-oriented data-structure design.
+
+collectionbox aims to be both usable and readable.
 
 Because the library is implemented entirely in Python, it may not match
 the performance of Python's highly optimized built-in collections.
@@ -40,17 +42,16 @@ Performance is therefore not the primary objective. Instead, the focus
 is on API consistency, clarity, object-oriented design, and ease of
 experimentation.
 
-The project is still evolving. In particular, hash tables and map
-(dictionary) types are not yet available, so collectionbox should
-currently be regarded as incomplete.
+The project is still evolving. In particular, hash-table and map
+(dictionary) types are not yet available.
 
 ## What is in the collectionbox?
 
 So far, the package provides five basic collection classes:
 
 - `Chain`, a (doubly) linked list
-- `Stack`- a stack implementation (LIFO) based on `Chain`.
-- `Queue`- a queue implementation (FIFO)based on `Chain`.
+- `Stack`, a stack implementation (LIFO) based on `Chain`.
+- `Queue`, a queue implementation (FIFO) based on `Chain`.
 - `SortedChain`, a sorted (doubly) linked list.
 - `Set`, an insertion-ordered collection of unique values based on `Chain`.
 
@@ -59,30 +60,30 @@ So far, the package provides five basic collection classes:
 `Chain` is a list-type collection class that is implemented as a
 doubly linked list for storing values (data items) of any type.
 
-`Chain()` initializes an empty chain that can be added to.
+`Chain()` initializes an empty chain.
 
 `Chain` offers the following methods:
 
-- `append(value)` - add to the end of the  list
-- `prepend(value)` - add to the beginning of the list
-- `add(value)` - alias for append
-- `len()` - number of nudes in the list
-- `count(value)` - return number of nodes with given value
-- `get_head()` - return the value of first node
-- `get_tail()` - return the value of last node
-- `index(value)`- return the index of first node with the given value
-- `remove(value)` - remove the first node with the given value
+- `append(value)` - add `value` to the end of the chain
+- `prepend(value)` - add `value` to the beginning of the chain
+- `add(value)` - alias for `append(value)`
+- `len()` - return the number of nodes in the chain
+- `count(value)` - return the number of nodes with the given value
+- `get_head()` - return the value of the first node, or `None` when empty
+- `get_tail()` - return the value of the last node, or `None` when empty
+- `index(value)` - return the zero-based index of the first matching node, or
+  `-1` when absent
+- `remove(value)` - remove the first node with the given value, if present
 - `remove_all(value)` - remove all nodes with the given value
-- `insert(index, value)` - insert a node with the given value right before
-  the given index
-- `clear()` - drain the list, i. e. remove all nodes
+- `remove_at(index)` - remove the node at the given zero-based index
+- `clear()` - remove all nodes
 
-Furthermore, Chain supports the following features of python collections:
+Furthermore, `Chain` supports the following Python collection features:
 
-- len : length
-- repr : string representation
+- `len()` : length
+- `repr()` : string representation
 - iteration (including reversal)
-- bool : check if empty
+- truth-value testing
 
 example use:
 
@@ -99,20 +100,20 @@ lst.add(1)
 
 `Stack` implements a stack (LIFO) data structure based on `Chain`.
 
-`Stack()`initializes an empty stack.
+`Stack()` initializes an empty stack.
 Stack supports the following methods:
 
-- `push(data) - put a leaf with given dta  on top of the stack
-- `pop()` - remove the top leaf from the stack, returning its data
-- `peek()`- the leaf's data without removing it.
-- `clear()` - remove all leaves from the stack
+- `push(item)` - put `item` on top of the stack
+- `pop()` - remove and return the top item from the stack
+- `peek()` - return the top item without removing it
+- `clear()` - remove all items from the stack
 
-Furthermore, `Stack` supports the following features of python containers:
+Furthermore, `Stack` supports the following Python container features:
 
-- len : length
-- repr : string representation
+- `len()` : length
+- `repr()` : string representation
 - iteration (including reversal)
-- bool : check if empty
+- truth-value testing
 
 example use:
 
@@ -129,7 +130,7 @@ s.pop()
 
 s.peek()
 
-print(len(s)
+print(len(s))
 print(s)
 
 ```
@@ -142,16 +143,16 @@ print(s)
 
 Queue supports the following methods:
 
-- `enqueue(data)` - add to the end of the queue
-- `dequeue()`- remove from beginning of the queue
-- `clear()` - drain the queue, removong all entries
+- `enqueue(item)` - add `item` to the end of the queue
+- `dequeue()` - remove and return the item at the beginning of the queue
+- `clear()` - remove all items from the queue
 
-Furthermore, `Queue` supports these features of python containers:
+Furthermore, `Queue` supports these Python container features:
 
-- len: length of the queue
-- repr: string representation
+- `len()`: length of the queue
+- `repr()`: string representation
 - iteration (including reversal)
-- bool : check if empty
+- truth-value testing
 
 example use:
 
@@ -177,7 +178,7 @@ q.dequeue()
 `SortedChain` implements a sorted list as a doubly linked list. Values added
 to the collection are kept in ascending order, including duplicate values.
 
-`SortedChain(value)` initializes a chain containing `value` as the only entry
+`SortedChain(value)` initializes a chain containing `value` as the only entry.
 
 `SortedChain` offers the following methods:
 
@@ -198,10 +199,10 @@ to the collection are kept in ascending order, including duplicate values.
 Furthermore, `SortedChain` supports the following features of Python
 collections:
 
-- len : length
-- repr : string representation
+- `len()` : length
+- `repr()` : string representation
 - iteration (including reversal)
-- bool : check if empty
+- truth-value testing
 - one-based indexing
 - membership testing
 
@@ -241,31 +242,26 @@ initialize it; duplicate values from that iterable are ignored.
 - `clear()` - remove all values
 
 `Set` also supports Python container operations for length, representation,
-iteration, and membership testing.
+iteration, membership testing, and truth-value testing.
 
-Additionally, `Set`supports the follopwing set opertations:
+Additionally, `Set` supports the following set operations:
 
-- `union(other)` - form the union with another set.
+- `union(other)` - form the union with another set
 - `intersection(other)` - form the intersection with another set
 - `difference(other)` - form the difference with another set
-- `symmetric_difference(other)` - symmetrix difference
+- `symmetric_difference(other)` - form the symmetric difference with another
+  set
 
 These operations are also available via corresponding operators:
 
 - `|`
 - `&`
 - `-`
-- `ˆ`
+- `^`
 
-Limitation:
-
-Note that, due to the use of collectionbox's `Chain` as a storage backend,
-element lookup in `Set` has linear complexity, O(n), in the number of elements.
-
-Limitation:
-
-Note that, due to the use of colectionbox's  Chain as a storage backend,
-element lookup in Set is of linear complexity O(n) in the number of elements.
+**Limitation:** Because `Set` uses collectionbox's `Chain` as its storage
+backend, membership testing has linear time complexity, O(n), in the number of
+elements.
 
 Example use:
 
