@@ -6,7 +6,9 @@ pushed, builds the package from that tag and publishes it to PyPI using
 trusted publishing. Tag-triggered CI publishes directly from `ci.yml` after
 it creates the release, because releases created with `GITHUB_TOKEN` do not
 emit a `release` event for other workflows. Releases published outside that
-tag-triggered path are published by `publish-pypi.yml`.
+tag-triggered path are published by `publish-pypi.yml`. Both workflows use
+the shared `.github/actions/publish-pypi` composite action to build and
+publish the package.
 
 Before the first automated publication, configure a
 [PyPI trusted publisher](https://docs.pypi.org/trusted-publishers/) for each
