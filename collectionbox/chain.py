@@ -46,13 +46,19 @@ class _DlNode:
 
 class Chain:
     """
-    Chain() creates an empty list by default.
+    Chain() creates an empty list by default. An optional iterable or
+    non-iterable single value initializes the chain with its values.
     """
 
-    def __init__(self):
+    _MISSING = object()
+
+    def __init__(self, iterable=_MISSING):
+
         self.__head = None
         self.__tail = None
         self.__size = 0
+        if iterable is not Chain._MISSING:
+            self += iterable
 
     @property
     def head(self):

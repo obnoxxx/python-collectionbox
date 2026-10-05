@@ -19,6 +19,20 @@ def test_chain():
     assert len(lst) == 0
 
 
+def test_chain_initializes_from_an_iterable():
+    chain = Chain([1, 2, 3])
+
+    assert list(chain) == [1, 2, 3]
+    assert len(chain) == 3
+    assert chain.head == 1
+    assert chain.tail == 3
+
+
+def test_chain_initializes_from_a_single_value():
+    c = Chain(1)
+    assert list(c) == [1]
+
+
 def test_chain_iteration_starts_at_the_head():
     chain = Chain()
     chain.add("first")
