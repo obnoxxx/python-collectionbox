@@ -52,13 +52,13 @@ class Chain:
 
     _MISSING = object()
 
-    def __init__(self, iterable=_MISSING):
+    def __init__(self, value_or_iterable=_MISSING):
 
         self.__head = None
         self.__tail = None
         self.__size = 0
-        if iterable is not Chain._MISSING:
-            self += iterable
+        if value_or_iterable is not Chain._MISSING:
+            self += value_or_iterable
 
     @property
     def head(self):
