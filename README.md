@@ -61,7 +61,7 @@ So far, the package provides five basic collection classes:
 doubly linked list for storing values (data items) of any type.
 
 `Chain()` initializes an empty chain.
-Pass an iterable or non-iterable single value to initialize it,
+Pass an iterable or a non-iterable single value to initialize it,
 for example `Chain([1, 2, 3])` or `Chain(4)`.
 
 `Chain` offers the following methods:
