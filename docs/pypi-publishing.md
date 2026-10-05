@@ -10,6 +10,9 @@ tag-triggered path are published by `publish-pypi.yml`. Both workflows use
 the PyPA publishing action directly, because trusted publishing does not
 support invoking that action from a composite action.
 
+For an exceptional command-line publication, see
+[Manual PyPI publishing](manual-pypi-publishing.md).
+
 Before the first automated publication, configure a
 [PyPI trusted publisher](https://docs.pypi.org/trusted-publishers/) for each
 workflow that can publish this repository:
