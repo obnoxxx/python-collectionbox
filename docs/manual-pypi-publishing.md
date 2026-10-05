@@ -31,6 +31,12 @@ read -r -s -p 'API token: ' TWINE_PASSWORD
 printf '\n'
 export TWINE_PASSWORD
 export TWINE_PASSWORD='pypi-...'
+
+
+
+read -r -s -p 'API token: ' TWINE_PASSWORD
+printf '\n'
+export TWINE_PASSWORD
 python -m twine upload --repository testpypi dist/*
 unset TWINE_PASSWORD
 ```
@@ -54,6 +60,9 @@ read -r -s -p 'API token: ' TWINE_PASSWORD
 printf '\n'
 export TWINE_PASSWORD
 export TWINE_PASSWORD='pypi-...'
+read -r -s -p 'API token: ' TWINE_PASSWORD
+printf '\n'
+export TWINE_PASSWORD
 python -m twine upload dist/*
 unset TWINE_PASSWORD
 ```
